@@ -1,10 +1,11 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 def plotgrid(map_func, xlim=(-3, 3), ylim=(-3, 3), grid_size=21):
     """
     Plots a regular grid and its deformation by map_func.
     """
+    import matplotlib.pyplot as plt
+
     # Create the original grid
     x = np.linspace(xlim[0], xlim[1], grid_size)
     y = np.linspace(ylim[0], ylim[1], grid_size)
@@ -50,13 +51,15 @@ def plotgrid(map_func, xlim=(-3, 3), ylim=(-3, 3), grid_size=21):
     plt.savefig('grid.png', dpi=150, bbox_inches='tight')
     plt.show()
 
-## Define a deformation functions
-def case_26(x, y):
-    return x + 0.02, y + 0.04
+## Define a deformation function
+def case_24(x, y):
+    A = 0.1
+    L = 4
+    return x + A * np.sin(2 * np.pi * y / L), y
 
 ## how to run
 ## start a python console
-# from Library import plotgrid, case_26
+# from Library import plotgrid, case_24
 
 ## to generate the plot
-# plotgrid(case_26)
+# plotgrid(case_24)
